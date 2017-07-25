@@ -18,7 +18,7 @@ export default class Slider extends Component {
       //调用这个方法会强行刷新DOM
       getComputedStyle(this.sliders, null).left;
       index = 1;
-      this.sliders.style.transitionDuration = '1s';
+      this.sliders.style.transitionDuration = this.props.speed+'s';
       this.setState({index});
       return;
     } else if (index < 0) {
@@ -27,7 +27,7 @@ export default class Slider extends Component {
       this.sliders.style.left = this.props.images.length * -300 + 'px';
       getComputedStyle(this.sliders, null).left;
       index = this.props.images.length - 1;
-      this.sliders.style.transitionDuration = '1s';
+      this.sliders.style.transitionDuration = this.props.speed+'s';
       this.setState({index});
       return;
     }
@@ -36,12 +36,13 @@ export default class Slider extends Component {
   //开始自动轮播,鼠标移动上去之后暂停自动轮播。鼠标移走之后开启自动轮播
   go = () => {
     this.timer = setInterval(() => {
-      this.turn(-1);
-    }, 2000)//每隔2秒钟让index加1
+      this.turn(1);
+    }, this.props.delay*1000)//每隔2秒钟让index加1
   }
 
   componentDidMount() {
-    this.go();
+    if(this.props.autoPlay)
+      this.go();
   }
 
   //把子组件中的SliderItems组件父组件
@@ -63,6 +64,7 @@ export default class Slider extends Component {
           images={this.props.images}
           index={this.state.index}
           setSliders={this.setSliders}
+          speed={this.props.speed}
         />
       </div>
     )
