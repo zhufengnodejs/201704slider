@@ -4,8 +4,8 @@ export default class SliderArrows extends Component{
   render(){
     return (
       <div className="slider-arrows">
-       <span className="arrow arrow-left">&lt;</span>
-       <span className="arrow arrow-right">&gt;</span>
+       <span onClick={()=>this.props.turn(-1)} className="arrow arrow-left">&lt;</span>
+       <span onClick={()=>this.props.turn(1)}className="arrow arrow-right">&gt;</span>
       </div>
     )
   }
