@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Slider.less'
 import SliderItems from "./SliderItems";
+import SliderArrows from "./SliderArrows";
 export default class Slider extends Component {
   constructor() {
     super();
@@ -18,7 +19,7 @@ export default class Slider extends Component {
       //调用这个方法会强行刷新DOM
       getComputedStyle(this.sliders, null).left;
       index = 1;
-      this.sliders.style.transitionDuration = this.props.speed+'s';
+      this.sliders.style.transitionDuration = this.props.speed + 's';
       this.setState({index});
       return;
     } else if (index < 0) {
@@ -27,7 +28,7 @@ export default class Slider extends Component {
       this.sliders.style.left = this.props.images.length * -300 + 'px';
       getComputedStyle(this.sliders, null).left;
       index = this.props.images.length - 1;
-      this.sliders.style.transitionDuration = this.props.speed+'s';
+      this.sliders.style.transitionDuration = this.props.speed + 's';
       this.setState({index});
       return;
     }
@@ -37,11 +38,11 @@ export default class Slider extends Component {
   go = () => {
     this.timer = setInterval(() => {
       this.turn(1);
-    }, this.props.delay*1000)//每隔2秒钟让index加1
+    }, this.props.delay * 1000)//每隔2秒钟让index加1
   }
 
   componentDidMount() {
-    if(this.props.autoPlay)
+    if (this.props.autoPlay)
       this.go();
   }
 
@@ -66,6 +67,7 @@ export default class Slider extends Component {
           setSliders={this.setSliders}
           speed={this.props.speed}
         />
+        <SliderArrows/>
       </div>
     )
   }
