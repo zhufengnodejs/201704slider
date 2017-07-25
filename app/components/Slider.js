@@ -8,9 +8,14 @@ export default class Slider extends Component{
     return (
       <div className="slider-wrapper">
         <ul className="sliders">
-          <li className="slider">
-            <img src="" alt=""/>
-          </li>
+          {
+            this.props.images.map((image,index)=>(
+              <li className="slider" key={index}>
+                <img src={image.src}/>
+              </li>
+            ))
+          }
+
         </ul>
       </div>
     )
