@@ -3,6 +3,7 @@ import SliderItem from "./SliderItem";
 export default class SliderItems extends Component{
   //在组件挂载完成后才能真正得到DOM元素
   componentDidMount(){
+    //this.refs.sliders等于真实的ul的DOM元素 {sliders:DOM}
     this.props.setSliders(this.refs.sliders);
   }
   render(){

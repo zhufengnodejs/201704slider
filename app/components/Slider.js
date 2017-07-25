@@ -15,11 +15,20 @@ export default class Slider extends Component {
       //先把转换的过渡时间设置为0
       this.sliders.style.transitionDuration = '0s';
       this.sliders.style.left = 0;//直接操作DOM元素，把left置为0
+      //调用这个方法会强行刷新DOM
+      getComputedStyle(this.sliders, null).left;
       index = 1;
-      setTimeout(()=>{
-        this.sliders.style.transitionDuration = '1s';
-        this.setState({index});
-      },0);
+      this.sliders.style.transitionDuration = '1s';
+      this.setState({index});
+      return;
+    } else if (index < 0) {
+      //先把转换的过渡时间设置为0
+      this.sliders.style.transitionDuration = '0s';
+      this.sliders.style.left = this.props.images.length * -300 + 'px';
+      getComputedStyle(this.sliders, null).left;
+      index = this.props.images.length - 1;
+      this.sliders.style.transitionDuration = '1s';
+      this.setState({index});
       return;
     }
     this.setState({index});
@@ -27,15 +36,16 @@ export default class Slider extends Component {
   //开始自动轮播,鼠标移动上去之后暂停自动轮播。鼠标移走之后开启自动轮播
   go = () => {
     this.timer = setInterval(() => {
-      this.turn(1);
+      this.turn(-1);
     }, 2000)//每隔2秒钟让index加1
   }
 
   componentDidMount() {
     this.go();
   }
+
   //把子组件中的SliderItems组件父组件
-  setSliders = (ref)=>{
+  setSliders = (ref) => {
     this.sliders = ref;
   }
 
@@ -52,7 +62,7 @@ export default class Slider extends Component {
         <SliderItems
           images={this.props.images}
           index={this.state.index}
-          setSliders  = {this.setSliders}
+          setSliders={this.setSliders}
         />
       </div>
     )
