@@ -18,6 +18,15 @@ module.exports = {
         test:/\.jsx?$/,//如果加载的模块后缀是js或jsx的庆
         use:"babel-loader",//使用babel进行转义
         exclude:/node_modules///为了提高解析速度，需要忽略掉node_modules下的东西
+      },
+      {
+        test:/\.less$/,//处理less文件
+        //使用三个加载器编译并加载less文件
+        use:["style-loader","css-loader","less-loader"]
+      },
+      {//如果是图片等资源文件的话用url-loader来加载
+        test:/\.(gif|png|jpg)$/,
+        use:'url-loader'
       }
     ]
   },
