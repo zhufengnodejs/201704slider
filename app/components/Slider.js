@@ -81,8 +81,8 @@ export default class Slider extends Component {
           setSliders={this.setSliders}
           speed={this.props.speed}
         />
-        <SliderArrows turn = {this.turn}/>
-        <SliderDots images={this.props.images}/>
+        {this.props.arrows?<SliderArrows turn = {this.turn}/>:null}
+        {this.props.dots?<SliderDots turn={this.turn} index={this.state.index} images={this.props.images}/>:null}
       </div>
     )
   }
