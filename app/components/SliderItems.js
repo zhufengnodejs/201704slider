@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import SliderItem from "./SliderItem";
 export default class SliderItems extends Component{
   render(){
     let style = {//给ul增加自定义样式对象
@@ -10,9 +11,7 @@ export default class SliderItems extends Component{
       <ul className="sliders" style={style}>
         {
           this.props.images.map((image,index)=>(
-            <li className="slider" key={index}>
-              <img src={image.src}/>
-            </li>
+            <SliderItem key={index} image={image}/>
           ))
         }
       </ul>
