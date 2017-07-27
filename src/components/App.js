@@ -5,10 +5,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import {
   HashRouter as Router, Route, Link, Switch
 } from 'react-router-dom';
-function Home() {
-  return <div>Home</div>
-}
-let User = () => <div>User</div>
+import User from "./User";
+import Profile from "./Profile";
+import Home from "./Home";
 export default class App extends Component {
   render() {
     //exact表示严格匹配，而非默认的只匹配前缀
@@ -31,7 +30,7 @@ export default class App extends Component {
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/user" component={User}/>
-            <Route path="/user" component={User}/>
+            <Route path="/profile" component={Profile}/>
           </Switch>
         </div>
       </Router>
