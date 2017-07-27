@@ -10,10 +10,9 @@ function Home(){
 let User = ()=><div>User</div>
 export default class App extends Component {
   render() {
-    //react元素用来指明此组件是如何渲染的
-    return (
+    return (  //react元素用来指明此组件是如何渲染的 Router只能有一个子元素
       <Router>
-        <div>
+        <div className="red">
           <ul>
             <li><a href="#/">首页</a></li>
             <li><a href="#/user">用户管理</a></li>
