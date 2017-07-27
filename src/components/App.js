@@ -10,6 +10,7 @@ function Home(){
 let User = ()=><div>User</div>
 export default class App extends Component {
   render() {
+    //exact表示严格匹配，而非默认的只匹配前缀
     return (  //react元素用来指明此组件是如何渲染的 Router只能有一个子元素
       <Router>
         <div className="red">
@@ -18,7 +19,7 @@ export default class App extends Component {
             <li><a href="#/user">用户管理</a></li>
           </ul>
           <hr/>
-          <Route path="/" component={Home}/>
+          <Route exact path="/" component={Home}/>
           <Route path="/user" component={User}/>
         </div>
       </Router>
