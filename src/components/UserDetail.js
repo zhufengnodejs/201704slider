@@ -22,7 +22,7 @@ export default class UserDetail extends Component{
           <button onClick={()=>this.props.history.goBack()} className="btn btn-primary">返回</button>
         </div>
         <div className="panel-body">
-          ID:{this.state.users.id}<br/>
+          ID:{this.state.user.id}<br/>
           用户名:{this.state.user.username}<br/>
           邮箱:{this.state.user.email}<br/>
         </div>

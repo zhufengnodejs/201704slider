@@ -8,6 +8,9 @@ import {
 import User from "./User";
 import Profile from "./Profile";
 import Home from "./Home";
+import MenuLink from './MenuLink';
+let News = props => <h1>func:{props.match.params.content}</h1>;
+//props history location match 这三个属性是路由给的，如果此组件不是路由渲染出来的，是没有这三个属性的
 export default class App extends Component {
   render() {
     //exact表示严格匹配，而非默认的只匹配前缀
@@ -21,18 +24,27 @@ export default class App extends Component {
                 <div className="navbar-brand">用户管理系统</div>
               </div>
               <ul className="nav navbar-nav">
-                <li><Link to="/">首页</Link></li>
-                <li><Link to="/user">用户管理</Link></li>
-                <li><Link to="/profile">个人设置</Link></li>
+                <MenuLink exact={true} to="/" label="首页"/>
+                <MenuLink exact={true} to="/user" label="用户管理"/>
+                <MenuLink exact={true} to="/profile" label="个人设置"/>
               </ul>
             </div>
           </nav>
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-md-offset-2">
-                  <Route path="/" component={Home}/>
+                <Switch>
+                  <Route exact path="/" component={Home}/>
                   <Route path="/user" component={User}/>
                   <Route path="/profile" component={Profile}/>
+                  <Route
+                    path="/news/:content"
+                    render={
+                      props => <h1>render:{props.match.params.content}</h1>
+                    }
+                    component={News}
+                  />
+                </Switch>
               </div>
             </div>
           </div>
