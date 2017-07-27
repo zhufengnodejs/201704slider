@@ -6,8 +6,10 @@ export default class UserDetail extends Component{
     this.state = {user:{}};
   }
   componentWillMount(){
-    let id = this.props.match.params.id;
-
+    let id = this.props.match.params.id;//先得到路径参数中的ID值
+    let users = utils.readUsers();//读取老的用户数组
+    let user = users.find(item =>item.id == id);//查找到数组中那个跟当前路径中的ID相同ID的用户对象
+    this.setState({user});//修改状态对象
   }
   render(){
     return (
@@ -16,9 +18,9 @@ export default class UserDetail extends Component{
           <button onClick={()=>this.props.history.goBack()} className="btn btn-primary">返回</button>
         </div>
         <div className="panel-body">
-          ID:<br/>
-          用户名:<br/>
-          邮箱:<br/>
+          ID:{this.state.user.id}<br/>
+          用户名:{this.state.user.username}<br/>
+          邮箱:{this.state.user.email}<br/>
         </div>
         <div className="panel-footer">
           <button className="btn btn-danger">删除</button>
