@@ -37,7 +37,7 @@ module.exports = {
     //可以以index.html作为模板，并向其中插入打包后的bundle.js文件。然后保存到目标路径下
     new HtmlWebpackPlugin({
       //以app下的index.html作为模板
-      template:'./app/index.html'
+      template:'./src/index.html'
     })
   ]
 
