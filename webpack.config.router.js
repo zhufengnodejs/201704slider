@@ -10,6 +10,7 @@ module.exports = {
     //打包后的文件名
     filename: 'bundle.js'
   },
+  devtool: "source-map",
   //配置模块的打包方式
   module:{
     //配置不同类型的文件加载方式
