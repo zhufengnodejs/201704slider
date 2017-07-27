@@ -24,9 +24,14 @@ module.exports = {
         //使用三个加载器编译并加载less文件
         use:["style-loader","css-loader","less-loader"]
       },
+      {
+        test:/\.css/,//处理less文件
+        //使用三个加载器编译并加载less文件
+        use:["style-loader","css-loader"]
+      },
       {//如果是图片等资源文件的话用url-loader来加载
         //图片 视频 音频 图标
-        test:/\.(gif|png|jpg)$/,
+        test:/\.(gif|png|jpg|svg|ttf|woff|woff2|eot)$/,
         //限定图片大小的分界是线，如果图片的体积小于给定的值(8*1024字节)的话,此图片会变成base64格式内嵌到网页中，否则的话会经过重命名后保存到目标里去，在网页中会得到一个新的URL路径
         use:'url-loader?limit=8192'
       }
