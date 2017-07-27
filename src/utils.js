@@ -12,5 +12,9 @@ export default  {
     users.push(user);
     //把这个新的数组保存到USERS里去
     localStorage.setItem(USERS,JSON.stringify(users));
+  },
+  readUsers(){
+   let usersStr = localStorage.getItem(USERS);
+   return usersStr?JSON.parse(usersStr):[];
   }
 }

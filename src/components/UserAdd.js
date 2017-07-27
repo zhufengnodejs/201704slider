@@ -3,7 +3,8 @@ import utils from  '../utils';
 //开闭原则 对扩展开放，对修改关闭
 //里氏代换原则 一个接口可以有多个实现，多个实现之间是可以替换掉
 export default class UserAdd extends Component {
-  handleSubmit = ()=>{
+  handleSubmit = (event)=>{
+    event.preventDefault();
     let username = this.refs.username.value;//取得用户名的值
     let email = this.refs.email.value;//取得邮箱的值
     //数据库 localStorage 文件里 cookie 远程ajax接口里
