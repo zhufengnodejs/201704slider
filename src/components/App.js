@@ -27,11 +27,17 @@ export default class App extends Component {
               </ul>
             </div>
           </nav>
-          <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path="/user" component={User}/>
-            <Route path="/profile" component={Profile}/>
-          </Switch>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-8 col-md-offset-2">
+                <Switch>
+                  <Route exact path="/" component={Home}/>
+                  <Route path="/user" component={User}/>
+                  <Route path="/profile" component={Profile}/>
+                </Switch>
+              </div>
+            </div>
+          </div>
         </div>
       </Router>
     )
