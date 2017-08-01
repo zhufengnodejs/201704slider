@@ -1,4 +1,5 @@
-import {createStore} from './redux';
+import  {createStore} from './redux';
+
 //state就是状态对象，可以是数字，对象，数组等任意数据类型
 //不要在reducer里面修改参数的值，读取数据库的内容
 //一定要返回一个新的对象

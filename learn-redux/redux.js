@@ -24,4 +24,4 @@ let  createStore = (reducer) => {
   }
 }
 //默认导出一个对象，createStore是它的一个属性
-export {createStore}
+export  {createStore}
