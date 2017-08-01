@@ -12,4 +12,5 @@ let reducer = (state={number:0},action={})=>{
   }
 }
 let store = createStore(reducer);
+window.store = store;
 export default store;

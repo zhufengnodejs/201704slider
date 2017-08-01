@@ -5,5 +5,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Counter from "./components/Counter";
-
-ReactDOM.render(<Counter/>,document.querySelector('#root'));
+function killMySelf(){
+  //在某个DOM节点上卸载组件
+  ReactDOM.unmountComponentAtNode(document.querySelector('#root'));
+}
+ReactDOM.render(<Counter killMySelf={killMySelf}/>,document.querySelector('#root'));
