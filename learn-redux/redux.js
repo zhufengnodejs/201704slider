@@ -1,6 +1,6 @@
 //这是一个方法，用于创建一个仓库
 //reducer每个项目都不一样，所以需要作为参数参数传进来,reducer用于从老状态和action得到新状态
-export function createStore(reducer) {
+let  createStore = (reducer) => {
   let state;//初始的状态
   //用于返回最新的状态
   let getState = () => state;
@@ -24,3 +24,4 @@ export function createStore(reducer) {
   }
 }
 //默认导出一个对象，createStore是它的一个属性
+export {createStore}
