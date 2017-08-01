@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from "../learn-redux/components/Counter";
+import Counter from "./components/Counter";
 import Todos from "./components/Todos";
 ReactDOM.render(
   <div>

@@ -2,7 +2,7 @@ let path = require('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   //打包的入口文件
-  entry: path.resolve('./learn-redux/index.js'),
+  entry: path.resolve('./combine/index.js'),
   //配置输出的目录和文件名
   output: {
     //打包后的文件保存的目录
@@ -43,7 +43,7 @@ module.exports = {
     //可以以index.html作为模板，并向其中插入打包后的bundle.js文件。然后保存到目标路径下
     new HtmlWebpackPlugin({
       //以app下的index.html作为模板
-      template:'./learn-redux/index.html'
+      template:'./combine/index.html'
     })
   ]
 
