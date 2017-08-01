@@ -46,7 +46,9 @@
     "build": "webpack",
     "dev": "webpack-dev-server --open",
     "build-router": "webpack --config webpack.config.router.js",
-    "dev-router": "webpack-dev-server  --config webpack.config.router.js --open"
+    "dev-router": "webpack-dev-server  --config webpack.config.router.js --open",
+    "build-redux": "webpack --config webpack.config.redux.js",
+    "dev-redux": "webpack-dev-server  --config webpack.config.redux.js --open"
   },
   "repository": {
     "type": "git",
