@@ -23,11 +23,11 @@ export default class App extends Component {
   }
   //返回子组件的上下文件对象
   getChildContext() {
-    console.log(PropTypes);
     return {color: this.state.color, age: 8,switchColor:this.switchColor};
   }
 
   render() {
+    console.log(PropTypes);
     return (
       <div style={{color:this.state.color}}>
         App

@@ -2,7 +2,7 @@ import React from 'react';
 import store from '../store';
 import * as types from '../action-types';
 //connect是用来连接组件和store
-import {connect} from 'react-redux';
+import {connect} from '../react-redux';
 //UI组件 木偶组件 傻瓜组件 让干啥干啥，没有自己的主见
 //容器组件 智能组件 聪明组件 有自己的状态和行为
 class Counter extends React.Component{
