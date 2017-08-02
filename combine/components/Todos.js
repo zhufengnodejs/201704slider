@@ -21,7 +21,7 @@ class Todos extends React.Component {
             this.props.list.map((item, index) => (
               <li key={index}>
                 {item}
-                <button>-</button>
+                <button onClick={()=>this.props.delTodo(index)}>-</button>
               </li>
             ))
           }
