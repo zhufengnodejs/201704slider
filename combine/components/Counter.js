@@ -1,8 +1,10 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
 import store from '../store';
 import * as types from '../action-types';
+import actions from '../actions';
 //connect是用来连接组件和store
-import {connect} from '../react-redux';
+import {connect} from 'react-redux';
 //UI组件 木偶组件 傻瓜组件 让干啥干啥，没有自己的主见
 //容器组件 智能组件 聪明组件 有自己的状态和行为
 class Counter extends React.Component{
@@ -22,12 +24,25 @@ let mapStateToProps = state => ({
   number:state.counter.number
 })//这个对象会成为当前组件的一个属性对象  this.props
 //把dispatch方法映射为属性对象 输出 派发action
-let mapDispatchToProps = dispatch => (
+/*let mapDispatchToProps = dispatch => (
   {
     add:()=>dispatch({type:types.ADD}),
     sub:()=>dispatch({type:types.SUB})
   }
-)
+)*/
+/*{  actionCreators
+ add(){return {type:types.ADD};}
+,sub(){return {type:types.SUB};
+}*/
+/*function bindActionCreators(actions,dispatch){
+   let obj = {};
+   for(let attr in actions){
+     obj[attr] = ()=>dispatch(actions[attr]());
+   }
+   return obj;
+}*/
+let mapDispatchToProps = dispatch=>bindActionCreators(actions,dispatch);
+
 export default connect(
   mapStateToProps,mapDispatchToProps
 )(Counter);
